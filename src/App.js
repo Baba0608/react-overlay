@@ -12,8 +12,6 @@ const App = () => {
   const [isValidAge, setIsValidAge] = useState(true);
 
   const addUserHandler = ({ userName, userAge: age }) => {
-    console.log(userName);
-    console.log(age);
     if (userName === "") {
       setIsValid(false);
       return;
@@ -24,6 +22,7 @@ const App = () => {
       return;
     }
     setUserList([...userList, { userName, age }]);
+    return true;
   };
 
   return (

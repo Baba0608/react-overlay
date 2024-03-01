@@ -1,4 +1,7 @@
-export const Overlay = ({ isValid, isValidAge, handler1, handler2 }) => {
+import React from "react";
+import ReactDOM from "react-dom";
+
+const ModelOverlay = ({ isValid, isValidAge, handler1, handler2 }) => {
   return (
     <div
       className={
@@ -43,5 +46,21 @@ export const Overlay = ({ isValid, isValidAge, handler1, handler2 }) => {
         </div>
       </div>
     </div>
+  );
+};
+
+export const Overlay = ({ isValid, isValidAge, handler1, handler2 }) => {
+  return (
+    <React.Fragment>
+      {ReactDOM.createPortal(
+        <ModelOverlay
+          isValid={isValid}
+          isValidAge={isValidAge}
+          handler1={handler1}
+          handler2={handler2}
+        />,
+        document.getElementById("model-overlay")
+      )}
+    </React.Fragment>
   );
 };

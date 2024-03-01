@@ -41,9 +41,10 @@ export const UserInput = ({ handler }) => {
         <button
           className="bg-purple-700 px-8 py-1 text-white text-lg rounded-md"
           onClick={() => {
-            handler({ userName, userAge });
-            setUserAge("");
-            setUserName("");
+            if (handler({ userName, userAge })) {
+              setUserAge("");
+              setUserName("");
+            }
           }}
         >
           Add User
