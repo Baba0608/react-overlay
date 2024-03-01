@@ -6,12 +6,17 @@ export const Overlay = ({ isValid, isValidAge, handler1, handler2 }) => {
           ? "hidden"
           : "fixed w-[100%] h-[100%] bg-gray-700/80 top-0 left-0"
       }
-      onClick={() => {
-        handler1(true);
-        handler2(true);
-      }}
     >
-      <div className="flex justify-center items-center h-[100%]">
+      <div
+        className="flex justify-center items-center h-[100%] cursor-pointer"
+        id="overlay"
+        onClick={(e) => {
+          if (e.target.id === "overlay") {
+            handler1(true);
+            handler2(true);
+          }
+        }}
+      >
         <div className="bg-white rounded-lg overflow-hidden">
           <div className="bg-purple-800 p-2 font-bold text-white text-lg w-[600px]">
             Invalid Input
